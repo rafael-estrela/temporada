@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="androidx.lifecycle.LiveData"/>
+        <import type="br.eti.rafaelcouto.temporada.viewModel.ShowDetailsViewModel"/>
+
+        <variable
+            name="loaderVisibility"
+            type="LiveData&lt;Integer&gt;" />
+
+        <variable
+            name="viewModel"
+            type="ShowDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/green_lightest"
+        tools:context=".view.details.ShowDetailsActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/aShowDetails_nsvContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/aShowDetails_ivPoster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/details_poster_height"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_x_large"
+                    android:layout_marginEnd="@dimen/spacing_x_large"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/aShowDetails_cpbVotes"
+                    android:layout_width="@dimen/default_voting_percent_size"
+                    android:layout_height="@dimen/default_voting_percent_size"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:background="@drawable/shape_voting_background"
+                    app:layout_constraintEnd_toEndOf="@id/aShowDetails_ivPoster"
+                    app:layout_constraintBottom_toBottomOf="@id/aShowDetails_ivPoster"
+                    app:cpb_background_progressbar_color="@color/green_dark"
+                    app:cpb_progressbar_color="@color/green_light"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{@string/votes_percent(viewModel.showAverage)}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_small"
+                    app:layout_constraintTop_toTopOf="@id/aShowDetails_cpbVotes"
+                    app:layout_constraintStart_toStartOf="@id/aShowDetails_cpbVotes"
+                    app:layout_constraintEnd_toEndOf="@id/aShowDetails_cpbVotes"
+                    app:layout_constraintBottom_toBottomOf="@id/aShowDetails_cpbVotes"/>
+
+                <TextView
+                    android:id="@+id/aShowDetails_tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_x_large"
+                    android:layout_marginEnd="@dimen/spacing_x_large"
+                    android:textColor="@color/gray_default"
+                    android:textSize="@dimen/font_x_large"
+                    android:textAlignment="center"
+                    android:text="@{viewModel.showName}"
+                    app:layout_constraintTop_toBottomOf="@id/aShowDetails_ivPoster"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/aShowDetails_tvInterval"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_x_small"
+                    android:layout_marginStart="@dimen/spacing_x_large"
+                    android:layout_marginEnd="@dimen/spacing_x_large"
+                    android:textColor="@color/gray_default"
+                    android:textSize="@dimen/font_large"
+                    android:textAlignment="center"
+                    android:text="@{@string/show_interval(viewModel.showFirstYear, viewModel.showLastYear)}"
+                    app:layout_constraintTop_toBottomOf="@id/aShowDetails_tvName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/aShowDetails_tvOverview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:layout_marginStart="@dimen/spacing_x_large"
+                    android:layout_marginEnd="@dimen/spacing_x_large"
+                    android:textColor="@color/gray_default"
+                    android:textSize="@dimen/font_medium"
+                    android:text="@{viewModel.showOverview}"
+                    app:layout_constraintTop_toBottomOf="@id/aShowDetails_tvInterval"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/aShowDetails_tvGenres"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginStart="@dimen/spacing_x_large"
+                    android:layout_marginEnd="@dimen/spacing_x_large"
+                    android:textColor="@color/gray_default"
+                    android:textSize="@dimen/font_small"
+                    android:textStyle="bold"
+                    android:text="@{@string/show_genres(viewModel.showGenres)}"
+                    app:layout_constraintTop_toBottomOf="@id/aShowDetails_tvOverview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/aShowDetails_tvSimilar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/spacing_x_large"
+                    android:layout_marginEnd="@dimen/spacing_x_large"
+                    android:textColor="@color/gray_default"
+                    android:textSize="@dimen/font_large"
+                    android:textStyle="bold"
+                    android:text="@{@string/similar_label(viewModel.showName)}"
+                    app:layout_constraintTop_toBottomOf="@id/aShowDetails_tvGenres"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/aShowDetails_rvSimilarShows"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    app:layout_constraintTop_toBottomOf="@id/aShowDetails_tvSimilar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+                
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{loaderVisibility}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- POSTER HEIGHT -->
+    <dimen name="default_poster_height">200dp</dimen>
+    <dimen name="details_poster_height">300dp</dimen>
+
+    <!-- VOTING DIMENS -->
+    <dimen name="default_voting_percent_size">50dp</dimen>
+
+    <!-- SPACING -->
+    <dimen name="spacing_x_small">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">12dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_x_large">20dp</dimen>
+    <dimen name="spacing_xxx_large">36dp</dimen>
+
+    <!-- FONT SIZE -->
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_medium">14sp</dimen>
+    <dimen name="font_large">16sp</dimen>
+    <dimen name="font_x_large">20sp</dimen>
+</resources>

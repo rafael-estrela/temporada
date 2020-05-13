@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_lightest">#E8F5E9</color>
+    <color name="green_lighter">#69F0AE</color>
+    <color name="green_light">#00E676</color>
+    <color name="green_default">#4CAF50</color>
+    <color name="green_dark">#388E3C</color>
+    <color name="green_darker">#1B5E20</color>
+
+    <color name="gray_default">#424242</color>
+    <color name="white">#fff</color>
+</resources>

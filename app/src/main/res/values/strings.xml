@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Temporada</string>
+
+    <!-- GENERAL -->
+    <string name="votes_percent">%1$s%%</string>
+    <string name="show_list_error">Não conseguimos carregar as séries :(</string>
+    <string name="show_details_error">Não conseguimos carregar mais detalhes :(</string>
+    <string name="default_retry">Recarregar</string>
+
+    <!-- DETAILS -->
+    <string name="show_interval">%1$s - %2$s</string>
+    <string name="show_genres">Gêneros: %1$s</string>
+    <string name="similar_label">Séries parecidas com %1$s:</string>
+    <string name="show_interval_current">Atualmente</string>
+</resources>

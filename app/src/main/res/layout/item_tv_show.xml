@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="br.eti.rafaelcouto.temporada.model.TvShow"/>
+
+        <variable
+            name="item"
+            type="TvShow" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iTvShow_ivPoster"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/default_poster_height"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/iTvShow_tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/gray_default"
+            app:layout_constraintTop_toBottomOf="@id/iTvShow_ivPoster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.firstAirYear}"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_small"
+            android:textColor="@color/gray_default"
+            app:layout_constraintTop_toBottomOf="@id/iTvShow_tvName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/iTvShow_cpbVotes"
+            android:layout_width="@dimen/default_voting_percent_size"
+            android:layout_height="@dimen/default_voting_percent_size"
+            android:layout_marginEnd="@dimen/spacing_x_small"
+            android:layout_marginBottom="@dimen/spacing_x_small"
+            android:background="@drawable/shape_voting_background"
+            app:layout_constraintEnd_toEndOf="@id/iTvShow_ivPoster"
+            app:layout_constraintBottom_toBottomOf="@id/iTvShow_ivPoster"
+            app:cpb_background_progressbar_color="@color/green_dark"
+            app:cpb_progressbar_color="@color/green_light"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{@string/votes_percent(item.textAverage)}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintTop_toTopOf="@id/iTvShow_cpbVotes"
+            app:layout_constraintStart_toStartOf="@id/iTvShow_cpbVotes"
+            app:layout_constraintEnd_toEndOf="@id/iTvShow_cpbVotes"
+            app:layout_constraintBottom_toBottomOf="@id/iTvShow_cpbVotes"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
