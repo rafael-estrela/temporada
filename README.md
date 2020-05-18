@@ -11,7 +11,6 @@ Esse aplicativo deverá listar as séries de TV populares em uma tela com rolage
 ### Sobre o projeto
 
 *  Técnica de desenvolvimento: _Test Driven Development_ (**TDD**);
-*  Arquitetura: _Model View ViewModel_ (**MVVM**);
 *  Linguagem: **Kotlin 1.3.72**;
 *  IDE: **AndroidStudio 3.6.3**;
 *  **Gradle 3.6.3**, _dist_ **5.6.4**;
